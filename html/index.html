@@ -1,24 +1,23 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <title>Share Map</title>
+  <title>Map Test</title>
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <link rel="stylesheet" href="{% static 'smap/style.css' %}">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <script  src="https://code.jquery.com/jquery-3.1.1.min.js"  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="  crossorigin="anonymous"></script>
 </head>
 <body>
   <header class="topHud">
-    <div class="topHud__icon"><a class="modal__open" data-target="seasma"><img src="{% static 'smap/img/search.svg' %}" alt="検索"></a></div>
-    <p class="topHud__title">Share-Map</p>
-    <div class="topHud__icon"><a class="modal__open" data-target="about"><img src="{% static 'smap/img/about.svg' %}" alt="概要"></a></div>
+    <div class="topHud__icon"><a class="modal__open" data-target="seasma"><img src="img/search.svg" alt="検索"></a></div>
+    <p class="topHud__title">Share-Map</div>
+    <div class="topHud__icon"><a class="modal__open" data-target="about"><img src="img/about.svg" alt="概要"></a></div>
   </header>
   <main>
     <div id="map"></div>
-    <script src="{% static 'smap/script.js' %}"></script>
+    <script src="script.js"></script>
     <script
       async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBP7y4SQBi2YjkNenggVRJCkl8aWmTS38s&callback=getLocation">
@@ -32,8 +31,8 @@
         <textarea id="tags" cols="30" rows="1" placeholder="tags"></textarea>
       </div>
       <div class="sma__twoBtn">
-        <div id="inbtn" class="sma__twoBtn__btn"><img src="{% static 'smap/img/smaru.svg' %}" alt=""></div>
-        <div class="sma__twoBtn__btn modal__close"><img src="{% static 'smap/img/back.svg' %}" alt=""></div>
+        <div id="inbtn" class="sma__twoBtn__btn"><img src="img/smaru.svg" alt=""></div>
+        <div class="sma__twoBtn__btn modal__close"><img src="img/back.svg" alt=""></div>
       </div>
     </div>
     <div id="seasma" class="sma">
@@ -42,8 +41,8 @@
         <textarea id="seatag" cols="30" rows="15" placeholder="input one tag"></textarea>
       </div>
       <div class="sma__twoBtn">
-        <div id="seabtn" class="sma__twoBtn__btn"><img src="{% static 'smap/img/searchBtn.svg' %}" alt=""></div>
-        <div class="sma__twoBtn__btn modal__close"><img src="{% static 'smap/img/back.svg' %}" alt=""></div>
+        <div id="seabtn" class="sma__twoBtn__btn"><img src="img/searchBtn.svg" alt=""></div>
+        <div class="sma__twoBtn__btn modal__close"><img src="img/back.svg" alt=""></div>
       </div>
     </div>
     <div id="about" class="sma modal__close">
@@ -61,7 +60,7 @@
   </main>
   <footer class="bottomHud">
     <div class="modal">
-      <div class="smaru"><a class="modal__open" data-target="insma"><img src="{% static 'smap/img/btn.svg' %}" alt="sumaru"></a></div>
+      <div class="smaru"><a class="modal__open" data-target="insma"><img src="img/btn.svg" alt="sumaru"></a></div>
     </div>
     <div class="pinchBtn">
       <!--<div class="pinchBtn__each"><a href="#">Zoom</a></div>-->
@@ -69,5 +68,5 @@
     </div>
   </footer>
 </body>
-<script src="{% static 'smap/modal.js' %}" type="text/javascript"></script>
+<script src="modal.js" type="text/javascript"></script>
 </html>
