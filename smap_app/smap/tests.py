@@ -127,11 +127,11 @@ class Test(TestCase):
                 "lng": 140.726467
             },
             "message": "北海道最南端の駅（大嘘）",
-            "tags": [
+            "tags": ','.join([
                 "親の顔より見た光景",
                 "実家のような安心感",
                 "リスポーン地点"
-            ]
+            ])
         }
         response = client.post(reverse('sumari'), json.dumps(json_data),
                                 content_type="application/json")
@@ -243,9 +243,9 @@ class Test(TestCase):
         ]
         self.create_data(data)
         client = Client()
-        response = client.get('/sumari/', params={'tags': 'meshi,ramen'})
+        response = client.get('/sumari/', {'tags': 'meshi,ramen'})
         self.assertSetEqual({sumari["name"] for sumari in response.json()}, {"山岡屋", "すしろー"})
-        response = client.get('/sumari/', params={'tags': 'ramen'})
+        response = client.get('/sumari/', {'tags': 'ramen'})
         self.assertSetEqual({sumari["name"] for sumari in response.json()}, {"山岡屋"})
 
     def test_get_all_tag_view(self):
