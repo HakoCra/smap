@@ -40,9 +40,12 @@ def smari(request):
             json_objs = [sumari.to_json() for sumari in Sumari.objects.all()]
             return JsonResponse(json_objs, safe=False)
 
-        tags = tags.split(",")
+        if ',' in tags:
+            tags = tags.split(",")
+        else:
+            tags = [tags]
+
         sumari_list = Sumari.search_with_tags(tags=tags, to_json=True)
-        print(sumari_list)
         return JsonResponse(sumari_list, safe=False)
 
 
