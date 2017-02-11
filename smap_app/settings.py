@@ -38,8 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # apps
-    'docker_django.apps.todo',
-    'docker_django.apps.smap'
+    'smap_app.apps.smap'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,7 +52,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-ROOT_URLCONF = 'docker_django.urls'
+ROOT_URLCONF = 'smap_app.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +70,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'docker_django.wsgi.application'
+WSGI_APPLICATION = 'smap_app.wsgi.application'
 
 
 # Database

@@ -42,6 +42,7 @@ def smari(request):
 
         tags = tags.split(",")
         sumari_list = Sumari.search_with_tags(tags=tags, to_json=True)
+        print(sumari_list)
         return JsonResponse(sumari_list, safe=False)
 
 
