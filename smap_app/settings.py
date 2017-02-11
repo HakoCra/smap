@@ -38,7 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # apps
-    'smap_app.apps.smap'
+    'smap_app.smap'
 )
 
 MIDDLEWARE_CLASSES = (
