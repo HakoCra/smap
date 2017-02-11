@@ -243,9 +243,9 @@ class Test(TestCase):
         ]
         self.create_data(data)
         client = Client()
-        response = client.get('/sumari', {'tags': 'meshi,ramen'})
+        response = client.get('/sumari/', params={'tags': 'meshi,ramen'})
         self.assertSetEqual({sumari["name"] for sumari in response.json()}, {"山岡屋", "すしろー"})
-        response = client.get('/sumari', {'tags': 'ramen'})
+        response = client.get('/sumari/', params={'tags': 'ramen'})
         self.assertSetEqual({sumari["name"] for sumari in response.json()}, {"山岡屋"})
 
     def test_get_all_tag_view(self):
