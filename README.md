@@ -8,6 +8,7 @@ DB_USER=postgres
 DB_PASS=postgres
 DB_SERVICE=postgres
 DB_PORT=5432
+DEBUG=true
 ```
 
 docker-compose up
