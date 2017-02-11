@@ -127,11 +127,11 @@ class Test(TestCase):
                 "lng": 140.726467
             },
             "message": "北海道最南端の駅（大嘘）",
-            "tags": [
+            "tags": ','.join([
                 "親の顔より見た光景",
                 "実家のような安心感",
                 "リスポーン地点"
-            ]
+            ])
         }
         response = client.post(reverse('sumari'), json.dumps(json_data),
                                 content_type="application/json")
