@@ -24,4 +24,9 @@ python manage.py makemigrations todo
 python manage.py migrate
 ```
 
+test
+```sh
+docker-compose exec web python manage.py test smap_app.smap.tests
+```
+
 Access http://localhost:8080
