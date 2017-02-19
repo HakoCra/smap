@@ -18,6 +18,8 @@ class Tag(models.Model):
 
 
 class Sumari(models.Model):
+    created_at = models.DateTimeField(auto_created=True)
+    updated_at = models.DateTimeField(auto_now=True)
     tags = models.ManyToManyField(Tag)
     name = models.CharField(max_length=32)
     message = models.CharField(max_length=140)
