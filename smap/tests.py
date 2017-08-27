@@ -4,6 +4,7 @@ from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 from .models import Tag, Sumari
 
+
 class Test(TestCase):
 
     def create_data(self, data):
@@ -18,7 +19,6 @@ class Test(TestCase):
                 tag = Tag.get_or_create(tagname)
                 new_sumari.tags.add(tag)
                 new_sumari.save()
-
 
     def test_search_sumaris_by_tag(self):
         data = [
@@ -139,7 +139,6 @@ class Test(TestCase):
         self.assertEqual(len(Sumari.objects.filter(tags__name__in=["親の顔より見た光景"])), 1)
         self.assertEqual(len(Sumari.objects.filter(tags__name__in=["親の顔"])), 0)
 
-
     def test_to_json(self):
         data = [
             {
@@ -161,7 +160,6 @@ class Test(TestCase):
         self.assertEqual(obj["message"], "山岡屋うまい")
         self.assertEqual(obj["position"]["lat"], 41.773809)
         self.assertEqual(obj["position"]["lng"], 140.726467)
-
 
     def test_search_and_get_as_json(self):
         data = [

@@ -6,8 +6,10 @@ from django.views.decorators.csrf import csrf_exempt
 
 from .models import Tag, Sumari
 
+
 def home(request):
     return render(request, 'smap/home.html')
+
 
 @csrf_exempt
 def smari(request):

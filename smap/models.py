@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Tag(models.Model):
     name = models.CharField(max_length=16)
 
@@ -24,7 +25,6 @@ class Sumari(models.Model):
     lat = models.DecimalField(max_digits=12, decimal_places=8)
     lng = models.DecimalField(max_digits=12, decimal_places=8)
     good = models.IntegerField(default=0)
-
 
     def to_json(self):
         obj = {
