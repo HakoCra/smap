@@ -77,16 +77,33 @@ function grepTags(url, tags) {
 /**
 * マーカー作成
 */
-function makeMarker(title, position, message, good, id) {
-  return new google.maps.Marker({
-    map: map,
-    title: title,
-    position: position,
-    message: message,
-    good: good,
-    id: id,
-    animation: google.maps.Animation.DROP
-  });
+function makeMarker(title, position, message, good, id, icon) {
+  if (icon) {
+    console.log(icon)
+    return  new google.maps.Marker({
+      map: map,
+      title: title,
+      position: position,
+      message: message,
+      good: good,
+      id: id,
+      icon: {
+        url: icon,
+        scaledSize: new google.maps.Size( 30, 30 ),
+      },
+      animation: google.maps.Animation.DROP
+    });
+  } else {
+    return  new google.maps.Marker({
+      map: map,
+      title: title,
+      position: position,
+      message: message,
+      good: good,
+      id: id,
+      animation: google.maps.Animation.DROP
+    });
+  }
 }
 
 /**
@@ -102,7 +119,8 @@ function getMarker() {
       var message = data[i]["message"];
       var good = data[i]["good"];
       var id = data[i]["id"];
-      markers[i] = makeMarker(name, {lat: lat,lng: lng}, message, good, id);
+      var icon = data[i]['icon'];
+      markers[i] = makeMarker(name, {lat: lat,lng: lng}, message, good, id, icon);
       markers[i].addListener('click', function() {
         infoWindow = new google.maps.InfoWindow({
           content: "<b>" + this.title + "</b><br><p>" + this.message + "</br><button id='" + this.id + "' onclick='good(" + this.id + ")'>👍" + this.good + "</button>"
@@ -152,6 +170,20 @@ function initMap() {
   $.getJSON("/static/smap/mapStyles.json", function(mapStyles) {
     map.setOptions({styles:mapStyles});
   });
+  var icons = {
+    shop1: {
+      icon: '/static/smap/barugai_assets/Shop1.png'
+    },
+    shop2: {
+      icon: '/static/smap/barugai_assets/Shop2.png'
+    },
+    shop3: {
+      icon: '/static/smap/barugai_assets/Shop3.png'
+    },
+    shop4: {
+      icon: '/static/smap/barugai_assets/Shop4.png'
+    }
+  };
   circle = new google.maps.Circle({
     strokeColor: '#1e90ff',
     strokeOpacity: 0.8,

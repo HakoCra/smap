@@ -92,3 +92,5 @@ ENV/
 
 static/
 !smap/static/
+
+tools/

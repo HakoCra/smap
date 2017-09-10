@@ -21,11 +21,12 @@ def smari(request):
             lat = data["position"]["lat"]
             lng = data["position"]["lng"]
             tags = data["tags"]
+            icon = data.get('icon', None)
         except KeyError as e:
             return JsonResponse({"status": str(e)})
 
         try:
-            new_sumari = Sumari(name=name, message=message, lat=lat, lng=lng)
+            new_sumari = Sumari(name=name, message=message, lat=lat, lng=lng, icon=icon)
             new_sumari.save()
             for tagname in tags.split(','):
                 tag = Tag.get_or_create(tagname)
