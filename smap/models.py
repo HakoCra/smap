@@ -53,4 +53,4 @@ class Sumari(models.Model):
             return objects
 
     def __str__(self):
-        return "「" + self.message + "」" + " " + ",".join(str(tag)for tag in self.tags.all())
+        return self.name + "「" + self.message + "」" + " " + ",".join(str(tag)for tag in self.tags.all())
